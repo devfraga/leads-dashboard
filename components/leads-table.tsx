@@ -188,9 +188,25 @@ export function LeadsTable() {
                       </TableCell>
                       <TableCell className="text-right">
                         <div className="flex items-center justify-end gap-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="h-8 w-8 p-0 bg-transparent hover:bg-[var(--whatsapp-green)] hover:text-white cursor-pointer"
+                            onClick={() => {
+                              const phoneNumber = cliente.telefone?.replace(/\D/g, "") // Remove non-digits
+                              if (phoneNumber) {
+                                const waLink = `https://wa.me/55${phoneNumber}`
+                                window.open(waLink, "_blank")
+                              }
+                            }}
+                            title="Conversar no WhatsApp"
+                          >
+                            <MessageCircle className="h-4 w-4" />
+                          </Button>
+
                           <AlertDialog>
                             <AlertDialogTrigger asChild>
-                              <Button variant="outline" size="sm" className="h-8 w-8 p-0 bg-transparent">
+                              <Button variant="outline" size="sm" className="h-8 w-8 p-0 bg-transparent cursor-pointer">
                                 {cliente.trava ? <Unlock className="h-4 w-4" /> : <Lock className="h-4 w-4" />}
                               </Button>
                             </AlertDialogTrigger>
