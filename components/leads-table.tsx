@@ -18,14 +18,13 @@ import {
 } from "@/components/ui/alert-dialog"
 import { ChevronLeft, ChevronRight, Lock, Unlock, Filter, MessageCircle, Phone } from "lucide-react"
 import { getClientes, updateClienteStatus, type Cliente } from "@/lib/supabase"
-import { allMockClientes } from "@/lib/mock-data"
 import { useToast } from "@/hooks/use-toast"
 
 const ITEMS_PER_PAGE = 20
 
 export function LeadsTable() {
   const [currentPage, setCurrentPage] = useState(1)
-  const [clientes, setClientes] = useState<Cliente[]>(allMockClientes)
+  const [clientes, setClientes] = useState<Cliente[]>([])
   const [showFollowUpFilter, setShowFollowUpFilter] = useState(false)
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
@@ -39,7 +38,6 @@ export function LeadsTable() {
       }
     } catch (error) {
       console.error("Erro ao carregar clientes:", error)
-      // Keep using mock data if Supabase fails
     } finally {
       setLoading(false)
     }
@@ -61,11 +59,9 @@ export function LeadsTable() {
 
     const newTravaStatus = !cliente.trava
 
-    // Try to update in Supabase first
     const success = await updateClienteStatus(clienteId, newTravaStatus)
 
     if (success) {
-      // Update local state
       setClientes((prevClientes) => prevClientes.map((c) => (c.id === clienteId ? { ...c, trava: newTravaStatus } : c)))
 
       const action = newTravaStatus ? "travada" : "destravada"
@@ -171,8 +167,8 @@ export function LeadsTable() {
                         </Badge>
                       </TableCell>
                       <TableCell>
-                        <div className="max-w-[150px] truncate" title={cliente.produto_intere || ""}>
-                          {cliente.produto_intere || "Não informado"}
+                        <div className="max-w-[150px] truncate" title={cliente.produto_interesse || ""}>
+                          {cliente.produto_interesse || "Não informado"}
                         </div>
                       </TableCell>
                       <TableCell>

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MessageCircle, MessageSquareCode as MessageSquareCheck, Clock, MessageSquareX, Phone } from "lucide-react"
 import { getClientes, type Cliente } from "@/lib/supabase"
-import { allMockClientes } from "@/lib/mock-data"
 
 const calculateMetrics = (clientes: Cliente[]) => {
   const totalLeads = clientes.length
@@ -26,7 +25,7 @@ const calculateMetrics = (clientes: Cliente[]) => {
 }
 
 export function DashboardMetrics() {
-  const [clientes, setClientes] = useState<Cliente[]>(allMockClientes)
+  const [clientes, setClientes] = useState<Cliente[]>([])
   const [loading, setLoading] = useState(false)
 
   const loadClientes = async () => {
@@ -38,7 +37,6 @@ export function DashboardMetrics() {
       }
     } catch (error) {
       console.error("Erro ao carregar clientes:", error)
-      // Keep using mock data if Supabase fails
     } finally {
       setLoading(false)
     }
@@ -58,7 +56,7 @@ export function DashboardMetrics() {
         </div>
         <div>
           <h2 className="text-2xl font-bold">Dashboard WhatsApp</h2>
-          <p className="text-muted-foreground">Automação de Leads e Conversas</p>
+          <p className="text-muted-foreground">Acompanhe o atendimento</p>
         </div>
       </div>
 

@@ -58,13 +58,15 @@ export interface Cliente {
   follow_up: number
   interessado: boolean
   last_followup: string | null
-  produto_intere: string | null
-  followup_statu: string
+  produto_interesse: string | null
+  followup_status: string
 }
+
+const TABLE_NAME = process.env.NEXT_PUBLIC_TABLE_NAME!;
 
 export async function getClientes(): Promise<Cliente[]> {
   const supabase = createClient()
-  const { data, error } = await supabase.from("clientes").select("*").order("created_at", { ascending: false })
+  const { data, error } = await supabase.from(TABLE_NAME).select("*").order("created_at", { ascending: false })
 
   if (error) {
     console.error("Erro ao buscar clientes:", error)
@@ -76,7 +78,7 @@ export async function getClientes(): Promise<Cliente[]> {
 
 export async function updateClienteStatus(id: number, trava: boolean): Promise<boolean> {
   const supabase = createClient()
-  const { error } = await supabase.from("clientes").update({ trava }).eq("id", id)
+  const { error } = await supabase.from(TABLE_NAME).update({ trava }).eq("id", id)
 
   if (error) {
     console.error("Erro ao atualizar status do cliente:", error)
