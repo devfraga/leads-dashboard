@@ -3,7 +3,7 @@
 
 Dashboard completo para acompanhar o Agent IA com base no projeto da Comunidade Automate.
 
-![Logo](https://raw.githubusercontent.com/devfraga/leads-dashboard/refs/heads/main/demo.png?token=GHSAT0AAAAAADLWRZSO62DAPS6XABBDJZIK2G24CQA)
+![Logo](https://i.imgur.com/AqTxvrq.png)
 
 
 ## Instalação
