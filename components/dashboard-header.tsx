@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { LogOut, MessageCircle, RefreshCw } from "lucide-react"
+import { LogOut, MessageCircle } from "lucide-react"
 import { signOut } from "@/lib/supabase"
 import { useToast } from "@/hooks/use-toast"
 
