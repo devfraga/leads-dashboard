@@ -1,30 +1,25 @@
-# Leads dashboard
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+# Dashboard Agent Suporte
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/devfragas-projects/v0-leads-dashboard)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/6C3RFboJNA6)
+Dashboard completo para acompanhar o Agent IA com base no projeto da Comunidade Automate.
 
-## Overview
+![Logo](https://raw.githubusercontent.com/devfraga/leads-dashboard/refs/heads/main/demo.png?token=GHSAT0AAAAAADLWRZSO62DAPS6XABBDJZIK2G24CQA)
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
 
-## Deployment
+## Instalação
+- Clone o repositório
+- Altere o arquivo .example.env para .env e ajuste suas variaveis ambientes.
+- Rode: `npm install` dentro do projeto
+- Comando para rodar em desenvolvimento: `npm run dev`
 
-Your project is live at:
+## Variávies ambiente:
+```
+NEXT_PUBLIC_DASHBOARD_NAME="Nome do seu painel"
+NEXT_PUBLIC_TABLE_NAME=[tabela do seu banco, ex: clientes]
+NEXT_PUBLIC_SUPABASE_URL=[URL DO SEU SUPABASE]
+NEXT_PUBLIC_SUPABASE_ANON_KEY=[ANON KEY DO SEU SUPABASE]
+```
 
-**[https://vercel.com/devfragas-projects/v0-leads-dashboard](https://vercel.com/devfragas-projects/v0-leads-dashboard)**
 
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.app/chat/projects/6C3RFboJNA6](https://v0.app/chat/projects/6C3RFboJNA6)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+[Instagram](https://www.instagram.com/sujeitoprogramador/)
+[Youtube](https://www.youtube.com/channel/UCLc5Bq2yfs-S3Zse3ZFRMEQ/)
