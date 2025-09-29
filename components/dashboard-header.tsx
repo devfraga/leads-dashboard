@@ -14,7 +14,6 @@ interface DashboardHeaderProps {
 export function DashboardHeader({ user }: DashboardHeaderProps) {
   const router = useRouter()
   const { toast } = useToast()
-  const [whatsappStatus, setWhatsappStatus] = useState<"connected" | "disconnected">("connected")
 
   const handleLogout = async () => {
     try {
@@ -51,19 +50,6 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
             <h1 className="text-2xl font-bold text-foreground">{process.env.NEXT_PUBLIC_DASHBOARD_NAME! ?? "Painel Atendimento"}</h1>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div
-                className="flex items-center gap-2 px-3 py-1 rounded-full bg-muted hover:bg-muted/80 transition-colors group"
-              >
-                <div
-                  className={`w-3 h-3 rounded-full group-hover:animate-pulse ${whatsappStatus === "connected" ? "bg-green-500" : "bg-red-500"}`}
-                />
-                <span className="text-sm text-muted-foreground">
-                  {whatsappStatus === "connected" ? "Conectado" : "Desconectado"}
-                </span>
-                <RefreshCw className="h-3 w-3 group-hover:animate-spin" />
-              </div>
-            </div>
             <span className="text-sm text-muted-foreground">Olá, {user?.email || "Usuário"}</span>
             <Button variant="outline" className="cursor-pointer" size="sm" onClick={handleLogout}>
               <LogOut className="h-4 w-4 mr-2" />
